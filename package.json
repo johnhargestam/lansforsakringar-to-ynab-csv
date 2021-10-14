@@ -1,0 +1,11 @@
+{
+  "name": "lansforsakringar-to-ynab-csv",
+  "version": "1.0.0",
+  "description": "Converts Länsförsäkringar exported transactions csv to YNAB-friendly format",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "john.hargestam",
+  "license": "ISC"
+}
