@@ -1,4 +1,4 @@
-import { chunk, split, trim } from "./csv"
+import { chunk, explode, label, split, trim } from './csv';
 
 describe('trim', () => {
   it('removes leading whitespace', () => {
@@ -31,5 +31,30 @@ describe('split', () => {
 
   it('divides on new lines with carriage return', () => {
     expect(split('a\r\nb')).toStrictEqual(['a', 'b']);
+  });
+});
+
+describe('explode', () => {
+  it('divides a string into an array splitting on separator', () => {
+    expect(explode('a;b;c')).toStrictEqual(['a', 'b', 'c']);
+  });
+
+  it('strips quotes', () => {
+    expect(explode('"a";"b";"c"')).toStrictEqual(['a', 'b', 'c']);
+  });
+});
+
+describe('label', () => {
+  it('divides a nested array csv into labeled objects', () => {
+    expect(
+      label([
+        ['first', 'second'],
+        ['a', 'b'],
+        ['j', 'k'],
+      ])
+    ).toStrictEqual([
+      { first: 'a', second: 'b' },
+      { first: 'j', second: 'k' },
+    ]);
   });
 });
