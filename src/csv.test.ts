@@ -1,4 +1,14 @@
-import { chunk, split } from "./csv"
+import { chunk, split, trim } from "./csv"
+
+describe('trim', () => {
+  it('removes leading whitespace', () => {
+    expect(trim('\r\na')).toStrictEqual('a');
+  });
+
+  it('removes trailing whitespace', () => {
+    expect(trim('a \t\n')).toStrictEqual('a');
+  });
+});
 
 describe('chunk', () => {
   it('divides a string into an array split on empty lines', () => {
@@ -12,7 +22,7 @@ describe('chunk', () => {
   it('splits on multiple lines containing whitespace', () => {
     expect(chunk('a\r\n\t\r\n \nb')).toStrictEqual(['a', 'b']);
   });
-})
+});
 
 describe('split', () => {
   it('divides a string into an array of lines', () => {
