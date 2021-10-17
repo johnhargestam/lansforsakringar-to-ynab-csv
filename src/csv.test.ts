@@ -18,4 +18,8 @@ describe('split', () => {
   it('divides a string into an array of lines', () => {
     expect(split('a\nb\nc')).toStrictEqual(['a', 'b', 'c']);
   });
+
+  it('divides on new lines with carriage return', () => {
+    expect(split('a\r\nb')).toStrictEqual(['a', 'b']);
+  });
 });
