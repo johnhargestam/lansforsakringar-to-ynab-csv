@@ -7,7 +7,7 @@ export const split = (contents: string) => contents.split(/\r?\n/);
 
 export const explode = (line: string) => line.replace(/"/g, '').split(/;/);
 
-export const label = (lines: string[][]) =>
+export const label = (lines: string[][]): { [key: string]: string }[] =>
   lines
     .slice(1)
     .map((line) =>
