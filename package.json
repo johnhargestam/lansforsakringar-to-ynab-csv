@@ -4,7 +4,9 @@
   "description": "Converts Länsförsäkringar exported transactions csv to YNAB-friendly format",
   "main": "app.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write .",
+    "start": "ts-node src/app.ts" 
   },
   "author": "john.hargestam",
   "license": "ISC",
